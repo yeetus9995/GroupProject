@@ -53,14 +53,31 @@ void Draw() {
     cout << endl;
     cout << "Score: " << score << endl;
 }
-void Logic() {
-    
-}
+
 void Input() { 
     if (_kbhit()) { 
-        switch (_getch()) {
+        char c = getch();
+        switch(c) {
+            case'a': case 'A':
+            if (dir != RIGHT) dir = LEFT;
+            break;
+            case 'd': case 'D':
+            if (dir != LEFT) dir = RIGHT;
+            break;
+            case 'w': case 'W':
+            if (dir != DOWN) dir = UP;
+            break;
+            case 's': case 'S':
+            if (dir != UP) dir = DOWN;
+            break;
+            case 'x': case 'X':
+            gameOver = true;
+            break;
         }
     }
+}
+void Logic() {
+    
 }
 int main() { 
     Setup();
